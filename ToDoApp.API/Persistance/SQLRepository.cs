@@ -1,6 +1,5 @@
 public class SQLRepository<T> : IRepository<T> where T : BaseEntity
 {
-    //The context is added in Step 5.1
     private readonly MasterContext _context;
 
     public SQLRepository(MasterContext context)

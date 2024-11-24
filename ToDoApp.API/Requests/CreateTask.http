@@ -2,10 +2,10 @@ POST http://localhost:5079/api/task
 Content-Type: application/json
 
 {
-    "name": "make request",
+    "name": "ma",
     "description": "I want to make POST request",
-    "statusUpdatedDate": "2024-11-08T08:00:00",
-    "createdDate": "2024-11-08T11:00:00",
+    "statusUpdatedDate": "1900-11-08T08:00:00",
+
     "status":"in work",
     "priority":0
 
