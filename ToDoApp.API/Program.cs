@@ -5,8 +5,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();  
 builder.Services.AddScoped<IRepository<Task>, SQLRepository<Task>>();
-// services.AddScoped<IRepository<Tax>, SQLRepository<Tax>>();
-// services.AddScoped<IRepository<Tax>, SQLRepository<Tax>>();
+builder.Services.AddScoped<IRepository<DeadlineTask>, SQLRepository<DeadlineTask>>();
 builder.Services.AddDbContext<MasterContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();

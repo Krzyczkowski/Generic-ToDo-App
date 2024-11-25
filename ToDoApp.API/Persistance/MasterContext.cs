@@ -15,8 +15,9 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Task>()
         .HasDiscriminator<string>("TaskType")
-        .HasValue<Task>("Task")               // Wartość dyskryminatora dla encji Task
-        .HasValue<DeadlineTask>("DeadlineTask"); // Wartość dyskryminatora dla encji DeadlineTask
+        .HasValue<Task>("Task")               
+        .HasValue<DeadlineTask>("DeadlineTask")
+        .HasValue<RecurringTask>("RecurringTask");  
 }
 
 }
