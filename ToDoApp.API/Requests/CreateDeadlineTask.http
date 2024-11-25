@@ -2,7 +2,7 @@ POST http://localhost:5079/api/deadlinetask
 Content-Type: application/json
 
 {
-    "name": "ma",
+    "name": "mas",
     "description": "I want to make POST request",
     "statusUpdatedDate": "1900-11-08T08:00:00",
     "deadline": "1900-11-08T08:00:00",

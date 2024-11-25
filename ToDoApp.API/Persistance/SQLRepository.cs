@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 public class SQLRepository<T> : IRepository<T> where T : BaseEntity
 {
     private readonly MasterContext _context;
@@ -17,13 +18,18 @@ public class SQLRepository<T> : IRepository<T> where T : BaseEntity
     public void Delete(Guid entityId)
     {
         var entity = _context.Find<T>(entityId);
-        if(entity != null) _context.Remove(entity);
+        if (entity != null) _context.Remove(entity);
         _context.SaveChanges();
     }
 
     public async Task<IEnumerable<T>> GetAll(GetRequest<T> request)
     {
         IQueryable<T> query = _context.Set<T>();
+
+        if (!string.IsNullOrEmpty(request.TaskType))
+        {
+            query = query.Where(x => EF.Property<string>(x, "TaskType") == request.TaskType);
+        }
 
         if (request.Filter != null)
         {

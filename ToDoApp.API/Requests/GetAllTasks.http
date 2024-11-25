@@ -1,0 +1,10 @@
+POST http://localhost:5079/api/task/getAll
+Content-Type: application/json
+
+{
+    "filter": null,
+    "orderBy": null,
+    "skip": 0,
+    "take": 10,
+    "taskType": "task"
+}

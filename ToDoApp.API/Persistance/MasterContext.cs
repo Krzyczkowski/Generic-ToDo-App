@@ -6,6 +6,7 @@ public class MasterContext : DbContext
 {
   public DbSet<Task> Task { get; set; } = null!;
   public DbSet<DeadlineTask> DeadlineTask { get; set; } = null!;
+  public DbSet<RecurringTask> RecurringTask { get; set; } = null!;
 
   public MasterContext(DbContextOptions<MasterContext> options)
      : base(options)
