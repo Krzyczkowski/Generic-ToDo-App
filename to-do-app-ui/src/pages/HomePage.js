@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getTasks } from '../services/api.js';
+import { getTasks } from "../services/api.js";
+import SearchBar from "../components/SearchBar.js";
+import Task from "../components/Task.js";
 
 const HomePage = () => {
   const [tasks, setTasks] = useState([]);
@@ -8,25 +10,46 @@ const HomePage = () => {
   useEffect(() => {
     getTasks()
       .then((response) => {
-        setTasks(response); 
+        setTasks(response);
       })
       .catch((err) => {
         setError("Failed to fetch tasks");
       });
   }, []);
 
+  const handleDelete = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    console.log(`Task ${taskId} deleted`);
+  };
+
+  const handleComplete = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, status: "completed" } : task
+      )
+    );
+    console.log(`Task ${taskId} marked as completed`);
+  };
+
   return (
-    <div>
-      <h1>To-Do List</h1>
+    <div className="homePage">
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {}
-      <ul>
+
+      {/* Pasek wyszukiwania */}
+      <SearchBar />
+
+      {/* Lista zadań */}
+      <div className="tasksList">
         {tasks.map((task) => (
-          <li key={task.id}>
-            {task.name} - {task.description}
-          </li>
+          <Task
+            key={task.id}
+            task={task}
+            onDelete={handleDelete}
+            onComplete={handleComplete}
+          />
         ))}
-      </ul>
+        
+      </div>
     </div>
   );
 };

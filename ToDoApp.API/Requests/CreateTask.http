@@ -5,7 +5,6 @@ Content-Type: application/json
     "name": "ma",
     "description": "I want to make POST request",
     "statusUpdatedDate": "1900-11-08T08:00:00",
-
     "status":"in work",
     "priority":0
 
