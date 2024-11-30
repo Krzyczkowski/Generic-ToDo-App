@@ -4,6 +4,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background-color: aliceblue;
+  height:100vh;
 }
 
 .flexRow{
@@ -34,138 +36,8 @@
 .homePage{
   width:100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  flex: 1; 
 }
 
-.tasksList{
-  background-color: #F1ECE6;
-  width:36rem;
-
-}
-.taskItem{
-  background-color: #F1ECE6;
-  width:100%;
-  border-bottom:4px solid #76B7CD; 
-  max-width: 100rem;
-}
-
-.deleteButton {
-  background-color: #cd3934;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  margin:1rem;
-  color:white;
-}
-
-.completeButton {
-  background-color: #5cdf3e;
-  border: none;
-  padding:0.7rem;
-  margin:1rem;
-  cursor: pointer;
-  border-radius: 50rem;
-  color:white;
-}
-
-.taskActions {
-  margin-top: 0.5rem;
-}
-
-.searchBar {
-  display: flex;
-  align-items: center;
-  border-radius: 1rem;
-  background-color: #F1ECE6;
-  overflow: hidden;
-  margin: 1rem;
-  width: 37rem;
-}
-
-.searchBar input {
-  font-size: 1.5rem;
-  background-color: #F1ECE6;
-  border: none;
-  flex-grow: 1; 
-  margin-left:1rem;
-}
-
-.searchBar input:focus {
-  outline: none;
-}
-
-.searchButton {
-  background-color: #76B7CD;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  padding:1rem;
-}
-
-.searchIcon {
-  color: white;
-}
-
-.searchIcon{
-  background-color: #76B7CD;
-  color: white;
-  border:none;
-  padding:0.1rem;
-}
-
-@media (max-width: 1000px) {
-  .taskItem{
-    width:100%;
-  }
-  .taskName{
-    font-size: 2.25rem;
-    margin:0.5rem;
-    text-align: center;
-    max-height: none;
-  }
-  
-  .taskDescription{
-    font-size: 1.7rem;
-    text-align: center;
-    max-height: none;
-    
-  }
-  .taskStatus{
-    font-size:1.65rem;
-    padding:0.5rem;
-  }
-  tr{
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  td{width: 100%;    
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;}
-
-  .firstColumn{
-    width: 100%;
-    
-  }
-  tbody{
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-}

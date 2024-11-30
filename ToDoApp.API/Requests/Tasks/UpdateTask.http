@@ -1,0 +1,7 @@
+PUT http://localhost:5079/api/task
+Content-Type: application/json
+
+{
+    "id":"6BD3ADAF-2400-4F04-A1BD-219957B46DEC",
+    "name": "test"
+}

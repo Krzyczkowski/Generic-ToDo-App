@@ -1,0 +1,13 @@
+.FaDeleteLeft{
+    color:red;
+    font-size: 3rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.IoMdAddCircle{
+    color:#5cdf3e;
+    font-size: 3rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}

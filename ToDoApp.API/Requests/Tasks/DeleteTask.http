@@ -1,0 +1,3 @@
+DELETE http://localhost:5079/api/task/A5225B02-85B9-48C1-9F23-46425D658433
+Content-Type: application/json
+

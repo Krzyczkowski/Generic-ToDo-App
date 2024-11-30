@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getTasks, deleteTask } from "../services/api.js";
+import { getDailyTasks, deleteTask } from "../services/api.js";
 import SearchBar from "../components/SearchBar.js";
 import Task from "../components/Task.js";
 import "../styles/SearchBar.css";
-
-const HomePage = () => {
+const DailyTasksPage = () => {
   const [tasks, setTasks] = useState([]);
   const [tasksFiltered, setTasksFiltered] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getTasks()
+    getDailyTasks()
       .then((response) => {
         setTasks(response);
         setTasksFiltered(response);
@@ -68,4 +67,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default DailyTasksPage;

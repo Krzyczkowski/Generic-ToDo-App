@@ -1,0 +1,88 @@
+.TaskCreationPanel{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.TaskCreationPanel input{
+    padding:0.7rem;
+    text-align: left;
+    background-color: #f1ece6;
+    padding:1rem;
+    border-bottom: 2px solid #76B7CD;
+    width: 50%;
+    margin-bottom: 0.5rem;
+}
+.CreateTaskPage div h2{
+    border-bottom: 4px solid #76B7CD;
+    width: 30%;
+    text-align: center;
+}
+.CreateTaskPage{
+    background-color: aliceblue;
+    width: 100%;
+}
+.CreateTaskPage label{
+    font-size: 1.5rem;
+}
+.CreateTaskPage div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-group{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:50%;
+    align-items: center;
+}
+
+.CreateTaskPage h2{
+    width: 100%;
+    font-weight: 300;
+    font-size:2rem;
+}
+.CreateTaskPage h2 strong{
+    font-weight: 500;
+}
+
+.CreateTaskPage .buttons{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+    padding-bottom: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.CreateTaskPage .buttons button{
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+    padding:0.4rem;
+    background-color: #f1ece6;
+    border:4px solid #76B7CD;
+    border-radius: 1rem;
+    margin:0.5rem;
+
+}
+.CreateTaskPage .buttons button:hover{
+    background-color: whitesmoke;
+}
+@media (max-width: 600px) {
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 90%;
+    }
+  
+    .form-group label {
+      width: 100%; 
+      margin-bottom: 0.5rem;
+    }
+  
+    .form-group input {
+      width: 100%; 
+    }
+  }

@@ -5,6 +5,11 @@ const MenuBar = ({ onSelectPage, activePage }) => {
   return (
     <div className="MenuBar">
       <MenuItem
+        text="Daily Tasks"
+        isActive ={activePage==="DailyTasks"}
+        onClick={() => onSelectPage("DailyTasks")}
+      ></MenuItem>
+      <MenuItem
         className="active"
         text="Task List"
         isActive ={activePage==="Home"}

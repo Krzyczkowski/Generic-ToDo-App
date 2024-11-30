@@ -1,7 +1,9 @@
 import AppHeader from "./components/AppHeader";
 import MenuBar from "./components/MenuBar";
 import HomePage from "./pages/HomePage";
+import Footer from "./components/Footer";
 import CreateTaskPage from "./pages/CreateTaskPage";
+import DailyTaskPage from "./pages/DailyTasksPage";
 import "./styles/App.css";
 import { Component } from "react";
 
@@ -17,10 +19,11 @@ class App extends Component {
     this.setState({ currentPage: page });
   };
   renderCurrentPage = () => {
-    console.log(this.state.currentPage)
     switch (this.state.currentPage) {
       case "Home":
         return <HomePage></HomePage>;
+      case "DailyTasks":
+          return <DailyTaskPage></DailyTaskPage>;
       case "CreateTask":
         return <CreateTaskPage></CreateTaskPage>;
       default:
@@ -34,6 +37,7 @@ class App extends Component {
         <AppHeader></AppHeader>
         <MenuBar onSelectPage={this.onSelectPage} activePage={this.state.currentPage}></MenuBar>
         {this.renderCurrentPage()}
+        <Footer></Footer>
       </div>
     );
   }

@@ -1,0 +1,84 @@
+.tasksList{
+    width:36rem;
+  
+  }
+  .taskItem{
+    background-color: #F1ECE6;
+    width:100%;
+    border-bottom:4px solid #76B7CD; 
+    max-width: 100rem;
+  }
+  .taskItem:last-child{
+    margin-bottom: 5rem;
+  }
+  .taskName{
+    font-size: 2rem;
+    margin:0;
+  }
+  .deleteButton {
+    background-color: #cd3934;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin:1rem;
+    color:white;
+  }
+  .taskDescription{
+    margin:0;
+  }
+  
+  .completeButton {
+    background-color: #5cdf3e;
+    border: none;
+    padding:0.7rem;
+    margin:1rem;
+    cursor: pointer;
+    border-radius: 50rem;
+    color:white;
+  }
+  
+  .taskActions {
+    margin-top: 0.5rem;
+  }
+
+  .taskDone .taskName,.taskDescription{
+    text-decoration: line-through;
+  }
+  .taskDone{
+    background-color: rgb(235, 235, 235);
+    color:grey;
+  }
+  .taskDone .completeButton{
+    background-color: #8da887;
+  }
+  .taskDone .deleteButton{
+    background-color: #a45f5d;
+  }
+
+  @media (max-width: 1000px) {
+    .searchBar{
+      width: 100%;
+    }
+    .taskItem{
+      width:100%;
+    }
+    .taskName{
+      font-size: 2.25rem;
+      text-align: center;
+      max-height: none;
+    }
+    
+    .taskDescription{
+      font-size: 1.7rem;
+      text-align: center;
+      max-height: none;
+      
+    }
+    .taskStatus{
+      font-size:1.65rem;
+      padding:0.5rem;
+    }
+    
+  }

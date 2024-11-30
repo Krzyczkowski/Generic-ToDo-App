@@ -13,3 +13,6 @@
     color:black;
     border-bottom: 3px solid #ea9e41;
 }
+.MenuBar div{
+    width:50%;
+}

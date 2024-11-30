@@ -2,4 +2,18 @@ body {
   font-family: 'Poppins', sans-serif;
   margin:0;
   padding:0;
+  background-color: aliceblue;
+  height:100vh;
 }
+
+input {
+  font-size: 1.5rem;
+  border: none;
+  flex-grow: 1; 
+  margin-left:1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
