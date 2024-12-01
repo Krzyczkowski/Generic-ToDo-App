@@ -1,3 +1,40 @@
+# TODO APP
+#### Main Layout:
+![](img/main_layout.png)
+
+#### Adding tasks:
+![](img/adding_tasks.png)
+
+App was created as 2 main components: frontend(React) and backend (.NET with C# and Microsoft SQL Server).
+
+## Requirements:
+- [Node.js](https://nodejs.org/) 
+- [.NET SDK](https://dotnet.microsoft.com/download) (version at least 8.0)
+
+## Running Application:
+
+#### 1. Running the frontend (React) 
+In the root directory run:
+```bash 
+npm install 
+```
+To start the application:
+```bash
+npm start
+```
+Application will probably be availabe at: `http://localhost:3000`
+
+#### 2. Running the Backend (.NET)
+Install Dependencies:
+```bash
+dotnet restore
+```
+Start the application:
+```bash
+dotnet run
+```
+You also have to configure your connection with Microsoft SQL Server, which is in the `appsettings.json` file in the Backend directory.
+
 # ToDoApp.API Documentation
 
 ## Table of Contents
