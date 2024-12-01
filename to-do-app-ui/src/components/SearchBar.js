@@ -3,10 +3,12 @@ import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = ({ onSearch }) => {
   const[searchPhrase,setSearchPhrase] = useState("");
+
   const handleInputChange= (e) =>{
     setSearchPhrase(e.target.value);
     handleSearch(searchPhrase);
   };
+  
   const handleSearch = () =>{
     onSearch(searchPhrase);
   }

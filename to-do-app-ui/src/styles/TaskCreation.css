@@ -49,6 +49,7 @@
 }
 
 .CreateTaskPage .buttons{
+    margin-top:5rem;
     display: flex;
     flex-direction: row-reverse;
     width: 50%;
@@ -70,6 +71,17 @@
 .CreateTaskPage .buttons button:hover{
     background-color: whitesmoke;
 }
+
+.form-select{
+    font-size:2rem;
+    width:50%;
+    margin:1rem;
+    border:0;
+    padding:0.5rem;
+    background-color: #f1ece6;
+
+}
+
 @media (max-width: 600px) {
     .form-group {
       flex-direction: column;

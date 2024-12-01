@@ -3,7 +3,8 @@ Content-Type: application/json
 
 {
     "filter": null,
-    "orderBy": null,
+    "orderByField": "priority",
+    "orderDescending": false,
     "skip": 0,
     "take": 10,
     "taskType": "task"

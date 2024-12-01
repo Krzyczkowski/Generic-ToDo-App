@@ -2,6 +2,6 @@ PUT http://localhost:5079/api/task
 Content-Type: application/json
 
 {
-    "id":"6BD3ADAF-2400-4F04-A1BD-219957B46DEC",
-    "name": "test"
+    "id":"40B01E5E-B357-49DF-A9F2-EE4B0068394D",
+    "description": "test23"
 }

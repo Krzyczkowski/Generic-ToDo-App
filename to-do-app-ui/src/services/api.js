@@ -1,11 +1,10 @@
 import axios from "axios";
 const API_URL = "http://localhost:5079/api";
 
-// funkcja pobierająca listę zadań
 export const getTasks = async () => {
   try {
     const response = await axios.post(`${API_URL}/task/getAll`, {
-      filter: null,
+      filter: "priority",
       orderBy: null,
       skip: 0,
       take: 10,
@@ -20,12 +19,12 @@ export const getTasks = async () => {
 };
 export const getDailyTasks = async () => {
   try {
-    const response = await axios.post(`${API_URL}/task/getAll`, {
+    const response = await axios.post(`${API_URL}/recurringTask/getAll`, {
       filter: null,
       orderBy: null,
       skip: 0,
       take: 10,
-      taskType: "daily",
+      taskType: "recurringtask",
     });
 
     return response.data;
@@ -36,11 +35,12 @@ export const getDailyTasks = async () => {
 };
 export const createTask = async (taskData) => {
   try {
-    const response = await axios.post(`${API_URL}/task`, {
+    const response = await axios.post(`${API_URL}/${taskData.taskType}`, {
       name: taskData.name || "Task Name",
       description: taskData.description || "Task Description",
       status: taskData.status || "active",
       priority: taskData.priority || 0,
+      taskType: taskData.taskType || 'Task',
     });
 
     return response.data;
@@ -58,3 +58,13 @@ export const deleteTask = async (taskData) => {
     throw error;
   }
 };
+
+export const updateTask = async(task) =>{
+  try {
+    const response = await axios.put(`${API_URL}/task/`,task);
+    return response.data;
+  } catch (error) {
+    console.error("Error when deleting task:", error);
+    throw error;
+  }
+}

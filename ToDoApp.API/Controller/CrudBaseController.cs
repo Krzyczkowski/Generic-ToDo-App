@@ -29,9 +29,22 @@ public class CrudBaseController<T> : ControllerBase, IApiController<T>
     }
 
     [HttpPut]
-    public async Task<T>? Put(T entity)
+    public async Task<IActionResult> Put([FromBody] T? entity)
     {
-        return await _repository.Update(entity);
+        if (entity == null) return BadRequest("Entity is null");
+        try
+        {
+            var updatedEntity = await _repository.Update(entity);
+            return Ok(updatedEntity);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message); 
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
     }
 
     [HttpDelete("{id}")]

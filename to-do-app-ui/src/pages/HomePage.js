@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTasks, deleteTask } from "../services/api.js";
+import { getTasks, deleteTask, updateTask } from "../services/api.js";
 import SearchBar from "../components/SearchBar.js";
 import Task from "../components/Task.js";
 import "../styles/SearchBar.css";
@@ -20,20 +20,49 @@ const HomePage = () => {
       });
   }, []);
 
-  const handleDelete = (taskId) => {
+  const handleDelete = async (taskId) => {
+    const previousTasks = tasks;
+  
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-    console.log(`Task ${taskId} deleted`);
-    deleteTask(taskId);
+    setTasksFiltered((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  
+    try {
+      await deleteTask(taskId);
+      console.log(`Task ${taskId} deleted`);
+    } catch (error) {
+      console.error("Failed to delete task:", error);
+      setTasks(previousTasks); // Przywróć poprzedni stan w razie błędu
+      setTasksFiltered(previousTasks);
+    }
+  };
+  
+  const handleComplete = async (taskId) => {
+    let updatedTask = null;
+    const previousTasks = tasks;
+    const updatedTasks = tasks.map((task) =>{
+      if(task.id===taskId){
+        updatedTask = task.status ==="done"?
+        {...task, status:"active"}:
+        {...task, status:"done"}
+        return updatedTask;
+      }
+      return task;
+    });
+    try {
+      if (updatedTask) {
+        await updateTask(updatedTask);
+      }
+      setTasks(updatedTasks);
+      setTasksFiltered(updatedTasks);
+
+    } catch (error) {
+      console.error("Failed to complete task:", error);
+
+      setTasks(previousTasks);
+      setTasksFiltered(previousTasks);
+    }
   };
 
-  const handleComplete = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...task, status: "completed" } : task
-      )
-    );
-    console.log(`Task ${taskId} is completed`);
-  };
 
   const handleSearch = (searchPhrase) => {
     if (searchPhrase==="") {

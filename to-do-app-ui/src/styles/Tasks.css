@@ -43,8 +43,9 @@
     margin-top: 0.5rem;
   }
 
-  .taskDone .taskName,.taskDescription{
-    text-decoration: line-through;
+  .taskDone .taskName,
+  .taskDone .taskDescription {
+      text-decoration: line-through;
   }
   .taskDone{
     background-color: rgb(235, 235, 235);
@@ -81,4 +82,12 @@
       padding:0.5rem;
     }
     
+  }
+
+  .orangeHr{
+    color:#ea9e41;
+    width:50%;
+    height: 00.1rem;
+    background-color: #ea9e41;
+    margin-top:0;
   }

@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
 import "../styles/Icons.css";
-import { createTask } from "../services/api";
+import { createTask, create } from "../services/api";
+
 const TaskCreationPanel = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     priority: "",
+    taskType: "Task", 
   });
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -17,8 +20,17 @@ const TaskCreationPanel = () => {
     }));
   };
 
+  const handleTaskTypeChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      taskType: e.target.value,
+    }));
+    console.log(e.target.value);
+  };
+
   const clearInputs = () => {
     setFormData({
+      ...formData,
       name: "",
       description: "",
       priority: "",
@@ -37,6 +49,14 @@ const TaskCreationPanel = () => {
 
   return (
     <div className="TaskCreationPanel">
+      <div className="form-group">
+        <label htmlFor="name">Task Type</label>
+        <select className="form-select" onChange={handleTaskTypeChange} id="taskType">
+          <option value="Task">Normal Task</option>
+          <option value="RecurringTask">Daily Task</option>
+        </select>
+      </div>
+
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
