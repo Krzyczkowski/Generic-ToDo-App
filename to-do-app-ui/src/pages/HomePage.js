@@ -31,7 +31,7 @@ const HomePage = () => {
       console.log(`Task ${taskId} deleted`);
     } catch (error) {
       console.error("Failed to delete task:", error);
-      setTasks(previousTasks); // Przywróć poprzedni stan w razie błędu
+      setTasks(previousTasks); 
       setTasksFiltered(previousTasks);
     }
   };
@@ -65,13 +65,13 @@ const HomePage = () => {
 
 
   const handleSearch = (searchPhrase) => {
-    if (searchPhrase==="") {
+    if (searchPhrase==="" || searchPhrase===" ") {
       setTasksFiltered(tasks);
     } else {
       const lowerCaseSearchPhrase = searchPhrase.toLowerCase();
       setTasksFiltered(
         tasks.filter((task) =>
-          task.name.toLowerCase().includes(lowerCaseSearchPhrase)
+          task.name.toLowerCase().indexOf(lowerCaseSearchPhrase) !== -1
         )
       );
     }

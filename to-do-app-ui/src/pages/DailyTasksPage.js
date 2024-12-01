@@ -71,7 +71,7 @@ const DailyTaskPage = () => {
       const lowerCaseSearchPhrase = searchPhrase.toLowerCase();
       setTasksFiltered(
         tasks.filter((task) =>
-          task.name.toLowerCase().includes(lowerCaseSearchPhrase)
+          task.name.toLowerCase().indexOf(lowerCaseSearchPhrase) !== -1
         )
       );
     }
