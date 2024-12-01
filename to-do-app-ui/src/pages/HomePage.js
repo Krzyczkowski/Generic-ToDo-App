@@ -48,6 +48,8 @@ const HomePage = () => {
       }
       return task;
     });
+
+    
     try {
       if (updatedTask) {
         await updateTask(updatedTask);
@@ -65,6 +67,7 @@ const HomePage = () => {
 
 
   const handleSearch = (searchPhrase) => {
+    console.log(searchPhrase);
     if (searchPhrase==="" || searchPhrase===" ") {
       setTasksFiltered(tasks);
     } else {
