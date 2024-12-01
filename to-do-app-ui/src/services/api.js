@@ -10,7 +10,7 @@ export const getTasks = async () => {
       take: 10,
       taskType: "task",
     });
-
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error when getting Tasks:", error);

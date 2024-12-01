@@ -75,6 +75,10 @@ public class SQLRepository<T> : IRepository<T> where T : BaseEntity
                 property.SetValue(existingEntity, value);
             }
         }
+        var updatedDateProperty = typeof(T).GetProperty("StatusUpdatedDate");
+        if(updatedDateProperty!=null)
+            updatedDateProperty.SetValue(existingEntity,DateTime.Now);
+
         await _context.SaveChangesAsync();
         return existingEntity;
     }

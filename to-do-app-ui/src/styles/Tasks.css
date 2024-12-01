@@ -42,7 +42,9 @@
   .taskActions {
     margin-top: 0.5rem;
   }
-
+  .taskDate{
+    color:rgb(1, 143, 1);
+  }
   .taskDone .taskName,
   .taskDone .taskDescription {
       text-decoration: line-through;

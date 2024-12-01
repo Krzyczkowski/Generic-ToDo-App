@@ -7,6 +7,7 @@
     font-size: 2rem;
     background-color: #F3F3F3;
     color:rgb(120, 120, 120);
+    cursor:pointer
 }
 
 .active{

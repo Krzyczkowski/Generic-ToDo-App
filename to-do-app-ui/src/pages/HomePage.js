@@ -37,33 +37,30 @@ const HomePage = () => {
   };
   
   const handleComplete = async (taskId) => {
-    let updatedTask = null;
     const previousTasks = tasks;
-    const updatedTasks = tasks.map((task) =>{
-      if(task.id===taskId){
-        updatedTask = task.status ==="done"?
-        {...task, status:"active"}:
-        {...task, status:"done"}
-        return updatedTask;
-      }
-      return task;
-    });
-
-    
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, status: task.status === "done" ? "active" : "done" }
+        : task
+    );
+  
     try {
-      if (updatedTask) {
-        await updateTask(updatedTask);
-      }
-      setTasks(updatedTasks);
-      setTasksFiltered(updatedTasks);
-
+      const updatedTask = updatedTasks.find((task) => task.id === taskId);
+      const data = await updateTask(updatedTask);
+  
+      const finalTasks = tasks.map((task) =>
+        task.id === taskId ? data : task
+      );
+  
+      setTasks(finalTasks);
+      setTasksFiltered(finalTasks);
     } catch (error) {
       console.error("Failed to complete task:", error);
-
       setTasks(previousTasks);
       setTasksFiltered(previousTasks);
     }
   };
+  
 
 
   const handleSearch = (searchPhrase) => {
