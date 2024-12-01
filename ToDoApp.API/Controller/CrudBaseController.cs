@@ -9,7 +9,6 @@ public class CrudBaseController<T> : ControllerBase, IApiController<T>
     {
         _repository = repository;
     }
-
     [HttpPost("GetAll")]
     public async Task<IEnumerable<T>>? GetAll([FromBody] GetRequest<T>? request = null)
     {
